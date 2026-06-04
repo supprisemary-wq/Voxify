@@ -8,9 +8,8 @@ from telegram.ext import Application, CommandHandler, MessageHandler, filters, C
 logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# ⚠️ PUT YOUR NEW TTS BOT TOKEN HERE
-TOKEN = "YOUR_NEW_TTS_BOT_TOKEN"
-
+# This tells the script to pull the real token from your Render environment panel!
+TOKEN = os.getenv("TOKEN", "YOUR_NEW_TTS_BOT_TOKEN")
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(
         "🗣️ **Welcome to Text-to-Speech Bot!**\n\n"
